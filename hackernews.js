@@ -30,7 +30,7 @@ const app = {
   checkCache: function(newData){
     that = this;
     diskCache.get('topPosts', function(err, cachedData) {
-    //fallback in case fs-cache is not supported
+    //fallback in case fs-cache is not supported or cache miss happens
     if(!cachedData){
       return;
     }
@@ -61,7 +61,7 @@ const app = {
       });
     })
   },
-  //handlePosts(posts) - get post data from post ids
+  //handlePosts(posts) - get post data from top post ids, return promise once done.
   handlePosts: function(posts){
     that = this;
     const postsArray = JSON.parse(posts);
@@ -75,7 +75,7 @@ const app = {
     });
     return Promise.all(requests);
   },
-  //performRequest(url) request data of one post 
+  //performRequest(url) request data of each post
   performRequest: function(url){
     return new Promise(function(resolve, reject) {
       request.get(url, function(err,response,body){
@@ -125,7 +125,7 @@ const app = {
     return true;
   }
 }
-//app starts here
+//init the app module with postCount
 app.init(postsCount);
 
 module.exports = app;
