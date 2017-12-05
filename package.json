@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Read hackernews from command line",
   "main": "hackernews.js",
+  "preferGlobal": "true",
+  "bin": {
+    "hackernews": "hackernews.js"
+  },
   "dependencies": {
     "async": "^2.6.0",
     "cache-manager": "^2.5.0",
