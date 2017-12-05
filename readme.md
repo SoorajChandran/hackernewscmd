@@ -26,8 +26,11 @@ Above command will get the top 10 posts. You can specify any number here less th
 **Testing** - [Mocha](https://mochajs.org/) with [Chai](http://chaijs.com/).
 
 **Important Packages used**
+
 request - to make http requests top hackernews api
+
 optimist - for processing command line arguments
+
 cacheManager - for the basic caching of files in case of repeated requests.
 
 # Run in local
